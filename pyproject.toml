@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0", "numpy", "matplotlib", "pyserial", "pyserial-asyncio", "pyvisa", "pyvisa-py", "gpiozero", "adafruit-circuitpython-dht"]
+
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sensors-control-gpio-xzf8971"
+version = "0.1.0"
+authors = [
+  { name="Zifeng", email="zifeng.xu@foxmail.com" },
+]
+description = "This is a repository desgined for the arduino 37 sensors bundle for raspberry pi 4. This package implemented in raspberry pi 4B GPIO with RPi.GPIO."
+readme = "README.md"
+requires-python = ">=3"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/xzf89718/sensors-control-gpio"
+"Bug Tracker" = "https://github.com/xzf89718/sensors-control-gpio/issues"
