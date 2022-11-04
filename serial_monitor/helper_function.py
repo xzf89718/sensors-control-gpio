@@ -1,4 +1,5 @@
 import serial
+import time
 import logging
 pyserial_monitoring_logger = logging.getLogger("pyserial_monitoring_logger")
 pyserial_monitoring_logger.propagate = False
@@ -31,8 +32,9 @@ class SerialMonitor():
 
     def WriteToFile(self):
         while True:
-            line = self.serial.readline().strip()
+            line = str(self.serial.readline().strip(), encoding="utf-8")
             if (line == ""):
                 continue
             else:
                 pyserial_monitoring_logger.info(line)
+            time.sleep(1)
