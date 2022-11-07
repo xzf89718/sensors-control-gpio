@@ -1,11 +1,11 @@
 [build-system]
-requires = ["setuptools>=61.0", "numpy", "matplotlib", "pyserial", "pyserial-asyncio", "RPi.GPIO", "adafruit-circuitpython-dht"]
+requires = ["setuptools>=61.0", "numpy", "matplotlib", "pyserial", "pyserial-asyncio", "RPi.GPIO", "adafruit-circuitpython-dht", "custom-logger-xzf8971"]
 
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "sensors-control-gpio-xzf8971"
-version = "1.1.0"
+version = "1.1.1"
 authors = [
   { name="Zifeng", email="zifeng.xu@foxmail.com" },
 ]
