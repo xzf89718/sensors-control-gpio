@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=61.0", "numpy", "matplotlib", "pyserial", "pyserial-asyncio", "RPi.GPIO", "adafruit-circuitpython-dht", "custom-logger-xzf8971"]
+requires = ["setuptools>=61.0", "numpy", "matplotlib", "pyserial", "pyserial-asyncio", "RPi.GPIO", "adafruit-circuitpython-dht", "custom-logger-xzf8971", "smbus2"]
 
 build-backend = "setuptools.build_meta"
 
