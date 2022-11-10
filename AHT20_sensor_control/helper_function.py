@@ -4,7 +4,7 @@ import logging
 from custom_logger import CustomLoggerWrapper, FMT_WITH_MODULENAME
 
 logger_wrapper = CustomLoggerWrapper(
-    "AHT20_sensor_control_helper", logger_level=logging.DEBUG, log_filename="AHT20_helper.log", logger_fmt=FMT_WITH_MODULENAME)
+    "AHT20_sensor_control_helper", logger_level=logging.INFO, log_filename="AHT20_helper.log", logger_fmt=FMT_WITH_MODULENAME)
 logger_wrapper.InitLogger()
 AHT20_helper_logger = logger_wrapper.GetInitedLogger()
 def get_bit_from_int(int_value, bit_index):

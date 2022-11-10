@@ -9,7 +9,7 @@ from AHT20_sensor_control.AHT20_sensor_parameters import *
 from custom_logger import CustomLoggerWrapper, FMT_WITH_MODULENAME
 
 logger_wrapper = CustomLoggerWrapper(
-    "AHT20_DEBUG", logger_level=logging.DEBUG, log_filename="test_AHT20.log", logger_fmt=FMT_WITH_MODULENAME)
+    "AHT20_DEBUG", logger_level=logging.INFO, log_filename="test_AHT20.log", logger_fmt=FMT_WITH_MODULENAME)
 logger_wrapper.InitLogger()
 AHT20_logger = logger_wrapper.GetInitedLogger()
 
