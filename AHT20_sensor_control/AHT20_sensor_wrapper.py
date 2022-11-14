@@ -113,6 +113,7 @@ class AHT20_wrapper(I2CWrapeprsmbus2):
         """
         Trigger a measurement.
         """
+        AHT20_logger.info("Send trigger cmd to AHT20")
         self._write_i2c_block_data(AHT20_ADDRESS, 0, CMD_TRIGGER)
         time.sleep(AHT20_MEASURE_DELAY)
 
@@ -140,10 +141,8 @@ class AHT20_wrapper(I2CWrapeprsmbus2):
             if (isCali == AHT20Status.AHT20_NOTCALI):
                 AHT20_logger.error("Fail to Cali AHT20.")
                 return AHT20Status.AHT20_FAILINIT
-            else:
-                return AHT20Status.AHT20_SUCCESSINIT
-        elif (isCali == AHT20Status.AHT20_CALI):
-            return AHT20Status.AHT20_SUCCESSINIT
+        AHT20_logger.info("InitSensor() success.")
+        return AHT20Status.AHT20_SUCCESSINIT
 
     def CheckStatus(self):
         """
@@ -191,7 +190,7 @@ class AHT20_wrapper(I2CWrapeprsmbus2):
 
     def CheckCRC(self):
         """
-        CheckCRC. In CRC8/MAXIM. Ref: file:///C:/Users/zifeng/Downloads/aht20%E4%BA%A7%E5%93%81%E8%A7%84%E6%A0%BC%E4%B9%A6(%E4%B8%AD%E6%96%87%E7%89%88)%20b2-0630.pdf
+        CheckCRC. In CRC8/MAXIM. Ref: http://www.aosong.com/products-61.html.
         """
         # Get all 6 bytes data and 1 bytes CRC code
         frame_for_CRC8_check = 0x00
