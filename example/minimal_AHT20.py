@@ -6,6 +6,7 @@ init_status = my_wrapper.InitSensor()
 if (init_status == AHT20Status.AHT20_SUCCESSINIT):
     while True:
         temperature, humidity = triggerAndMeasure(my_wrapper)
+        print("{0:.2f} C {1:.2f} %RH".format(temperature, humidity * 100))
         time.sleep(1)
 else:
     print("Fail init AHT20")
