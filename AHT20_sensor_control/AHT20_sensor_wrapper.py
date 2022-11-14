@@ -195,9 +195,9 @@ class AHT20_wrapper(I2CWrapeprsmbus2):
         """
         # Get all 6 bytes data and 1 bytes CRC code
         frame_for_CRC8_check = 0x00
-        for i in range(0, 7):
-            frame_for_CRC8_check << 8 | self.all_data[i]
-        isCRCOK = AHT20_crc8_check(frame_for_CRC8_check)
+        # for i in range(0, 7):
+        #     frame_for_CRC8_check << 8 | self.all_data[i]
+        isCRCOK = AHT20_crc8_check(self.all_data)
         if (isCRCOK):
             return AHT20Status.AHT20_CRCOK
         else:
