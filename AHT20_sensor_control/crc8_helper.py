@@ -1,4 +1,7 @@
-# A total of 6 * 8 bits data need to check
+# Usage: AHT20 crc8 checker. 
+# A total of 6 * 8 bits data need to check. G(x) = x8 + x5 + x4 + 1 -> 0x131(0x31), Initial value = 0xFF. No XOROUT. 
+# Author: XU Zifeng. 
+# Email: zifeng.xu@foxmail.com
 N_DATA = 6
 # 1 * 8 bits CRC
 N_CRC = 1
@@ -41,31 +44,33 @@ def mod2_division_8bits(a, b, number_of_bytes, init_value):
     return a
 
 
-def AHT20_crc8_check(all_data_int, init_value=0xFF):
+def AHT20_crc8_calculate(all_data_int):
+    init_value = INIT
+    # Preprocess all the data and CRCCode from AHT20
+    data_from_AHT20 = 0x00
+    # Preprocessing the first data (status)
+    # print(bin(data_from_AHT20))
+    for i_data in range(0, len(all_data_int)):
+        data_from_AHT20 = (data_from_AHT20 << 8) | all_data_int[i_data]
+    # print(bin(data_from_AHT20))
+    mod_value = mod2_division_8bits(
+        data_from_AHT20, CRC_DEVIDE_NUMBER, len(all_data_int), init_value)
+    # print(mod_value)
+    return mod_value
+
+
+def AHT20_crc8_check(all_data_int):
     """
     The input data shoule be:
     Status Humidity0 Humidity1 Humidity2|Temperature0 Temperature1 Temperature2 CRCCode.
     In python's int64.
     """
-    # Preprocess all the data and CRCCode from AHT20
-    DATA_FROM_AHT20 = 0x00
-    # Preprocessing the first data (status)
-    DATA_FROM_AHT20 = DATA_FROM_AHT20 | all_data_int[0]
-    print(bin(DATA_FROM_AHT20))
-    for i_data in range(1, N_DATA):
-        DATA_FROM_AHT20 = (DATA_FROM_AHT20 << 8) | all_data_int[i_data]
-    print(bin(DATA_FROM_AHT20))
-    mod_value = mod2_division_8bits(
-        DATA_FROM_AHT20, CRC_DEVIDE_NUMBER, len(all_data_int) - 1, init_value)
-    print(mod_value)
+    mod_value = AHT20_crc8_calculate(all_data_int[:-1])
     if (mod_value == all_data_int[-1]):
         return True
     else:
         return False
 
-
-def AHT20_crc8_calculate(all_data_int):
-    pass
 
 
 def CRC8_check(all_data_int, init_value=0x00):
@@ -84,4 +89,4 @@ def CRC8_check(all_data_int, init_value=0x00):
 if __name__ == "__main__":
     print(CRC8_check([0x66, 0x44, 0x33, 0x22, 0x24], 0))
     for data in TEST_DATA:
-        print(AHT20_crc8_check(data, INIT))
+        print(AHT20_crc8_check(data))
