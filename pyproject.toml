@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sensors-control-gpio-xzf8971"
-version = "1.2.0"
+version = "2.0.0"
 authors = [
   { name="Zifeng", email="zifeng.xu@foxmail.com" },
 ]

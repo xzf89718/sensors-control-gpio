@@ -73,6 +73,8 @@ def triggerAndMeasureAndCRCcheck(AHT20_sensor):
         raise NotImplementedError("Should be a AHT20_wrapper")
     temperature, humidity = triggerAndMeasure(AHT20_sensor)
     CRCStatus = AHT20_sensor.CheckCRC()
+    if (CRCStatus == AHT20Status.AHT20_CRCNOTOK):
+        AHT20_logger.warning("CRC8 check fail")
     return temperature, humidity, CRCStatus
 
 
