@@ -5,7 +5,6 @@ This is a repository desgined for the arduino 37 sensors bundle for raspberry pi
 pip install sensors-control-gpio-xzf8971
 ```
 # AHT20
-AHT20 CRC8/MAXIM is still work in proress.
 ## How to
 For help infromation
 ```bash
