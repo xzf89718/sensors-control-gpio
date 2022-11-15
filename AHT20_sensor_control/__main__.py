@@ -43,7 +43,7 @@ if __name__ == "__main__":
                     CRC8_check = AHT20Status.AHT20_CRCNOTOK
                     while (CRC8_check == AHT20Status.AHT20_CRCNOTOK):
                         temerature, humidity, CRC8_check = triggerAndMeasureAndCRCcheck(my_wrapper)
-                    mylogger.info("{0:.2f} C\t{1:.2f} %RH\t{2}".format(temperature, humidity * 100, str(CRC8_check)))
+                    mylogger.info("{0:.2f} C\t{1:.2f} %RH".format(temperature, humidity * 100))
                 time.sleep(MEASURE_INTERVAL)
         except KeyboardInterrupt:
             mylogger.warning("Stop by keyboard.")
