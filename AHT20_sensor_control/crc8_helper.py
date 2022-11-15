@@ -39,8 +39,8 @@ def mod2_division_8bits(a, b, number_of_bytes, init_value):
         else:
             head_of_a = head_of_a >> 1
             b = b >> 1
-        print("a:{0}\thead of a:{1}\tb:{2}".format(
-            bin(a), bin(head_of_a), bin(b)))
+        # print("a:{0}\thead of a:{1}\tb:{2}".format(
+        #    bin(a), bin(head_of_a), bin(b)))
     return a
 
 
