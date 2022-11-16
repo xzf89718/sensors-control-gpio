@@ -23,7 +23,7 @@ Only support backen adafruit now, the error rate of DHT11 is quite high. DHT11 i
 python -m DHT11_sensor_control -p pin -b adafruit 
 ```
 # serial_monitor
-This is a very simple scripts develope for arduino serial monitor
+This is a very simple scripts developed for arduino serial monitoring (like serial monitor in Arduino IDE, but this one will save data into file)
 ## How to
 ```bash
 # I suppose your serial port want to monitor is ttyACM0
